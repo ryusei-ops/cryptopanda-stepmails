@@ -351,17 +351,17 @@
 <body>
 
 <div class="page-header">
-  <h1>IZAKA-YA / CryptoPawn ステップメール 設計書</h1>
-  <p>保有している暗号資産を「増やす（IZAKA-YA）」「借りる（CryptoPawn）」── 2サービスの単体PR</p>
+  <h1>Cryptopanda 会員 ステップメール 設計書</h1>
+  <p>Cryptopanda 概要説明 → IZAKA-YA・CryptoPawn のご案内（各サービスは単体PR）</p>
   <div class="meta">
-    <span>v2.0｜2026-06-24</span>
+    <span>v3.0｜2026-06-24</span>
     <span>Leit On 大石</span>
-    <span>対象: 暗号資産保有ユーザー</span>
+    <span>対象: Cryptopanda登録済みユーザー</span>
   </div>
 </div>
 
 <div class="legend">
-  <div class="legend-item"><div class="legend-dot green"></div>導入・イントロ</div>
+  <div class="legend-item"><div class="legend-dot green"></div>Cryptopanda 概要</div>
   <div class="legend-item"><div class="legend-dot orange"></div>IZAKA-YA</div>
   <div class="legend-item"><div class="legend-dot gold"></div>CryptoPawn</div>
   <div class="legend-item"><div class="legend-dot purple"></div>使い分け</div>
@@ -369,7 +369,7 @@
 </div>
 
 <div class="nav-toc">
-  <a href="#step-day0" class="nav-btn"><div class="nav-dot" style="background:#4a9d65"></div>Day 0 イントロ</a>
+  <a href="#step-day0" class="nav-btn"><div class="nav-dot" style="background:#4a9d65"></div>Day 0 Cryptopanda概要</a>
   <a href="#step-day3" class="nav-btn"><div class="nav-dot" style="background:#e85d3c"></div>Day 3 IZAKA-YA</a>
   <a href="#step-day5" class="nav-btn"><div class="nav-dot" style="background:#c9a227"></div>Day 5 CryptoPawn</a>
   <a href="#step-day7" class="nav-btn"><div class="nav-dot" style="background:#7c3aed"></div>Day 7 使い分け</a>
@@ -382,11 +382,12 @@
   <div class="intro" style="display:none;">
     <h2>このステップメールの設計方針</h2>
     <p>
-      <strong>目的</strong>：暗号資産を保有しているユーザーに対し、<strong>IZAKA-YA（預けて増やす）</strong> と <strong>CryptoPawn（売らずに借りる）</strong> を、それぞれ独立した単体サービスとして紹介し、送客を最大化する。
+      <strong>目的</strong>：Cryptopanda 登録済みユーザーに対し、まずCryptopanda自体の概要・使い方を案内したうえで、<strong>IZAKA-YA（預けて増やす）</strong> と <strong>CryptoPawn（売らずに借りる）</strong> を、それぞれ独立した単体サービスとして紹介し、送客を最大化する。
     </p>
     <div class="secret">
       <b>方針メモ</b>
-      2サービスは「連携前提（◯◯で買った暗号資産を△△で運用する）」のクロスセルではなく、<b>それぞれ単独で完結するPRメール</b>として設計する。どちらか片方だけの利用でも成立する文面とし、特定の他サービスを利用していることを前提にした記述はしない。
+      ① Cryptopandaは廃止予定だが、初回からいきなり他サービスを宣伝すると違和感があるため、Day 0はCryptopandaの概要説明にあてる。<b>Cryptopandaは中央集権ではない（分散型）</b>ため、運営事務局・問い合わせ窓口・営業時間は設けず、差出人も「Cryptopanda」とする。<br>
+      ② IZAKA-YA／CryptoPawnは「連携前提（◯◯で買った暗号資産を△△で運用する）」のクロスセルではなく、<b>それぞれ単独で完結するPRメール</b>として設計する。どちらか片方だけの利用でも成立する文面とし、特定の他サービスの利用を前提にした記述はしない。
     </div>
     <p><strong>サービス情報</strong>：</p>
     <ul>
@@ -396,7 +397,7 @@
     <p><strong>配信媒体</strong>：<b>SendGrid</b>（Marketing Campaigns / Dynamic Templates）にて配信</p>
     <p><strong>全5通の役割分担</strong>：</p>
     <ul>
-      <li><strong>Day 0</strong>：イントロ（保有している暗号資産の「2つの活かし方」を提示）</li>
+      <li><strong>Day 0</strong>：Cryptopanda 概要説明（ウェルカム＋使い方3ステップ＋FAQ）</li>
       <li><strong>Day 3</strong>：IZAKA-YA 単体PR（預けて利息を受け取る）</li>
       <li><strong>Day 5</strong>：CryptoPawn 単体PR（売らずに現金を借りる）</li>
       <li><strong>Day 7</strong>：使い分け（増やす⇔借りる、どちらを選ぶか）</li>
@@ -412,68 +413,68 @@
     <div class="card card-border-green">
       <div class="card-header">
         <span class="card-day">Day 0</span>
-        <span class="card-title">イントロ（保有している暗号資産の「2つの活かし方」）</span>
+        <span class="card-title">Cryptopanda 概要説明（ウェルカム＋使い方）</span>
         <span class="badge badge-intro">導入</span>
       </div>
       <div class="card-body">
-        <div class="card-trigger"><b>トリガー</b>：配信開始時（即時）｜<b>配信形式</b>：HTMLメール</div>
+        <div class="card-trigger"><b>トリガー</b>：会員登録完了直後（即時）｜<b>配信形式</b>：HTMLメール</div>
 
         <div class="mail-preview">
           <div class="mail-head">
-            <span class="from">運営事務局 &lt;{{from_address}}&gt;</span>
-            <span class="subj">【ご案内】保有している暗号資産、ただ眠らせていませんか？</span>
+            <span class="from">Cryptopanda &lt;{{from_address}}&gt;</span>
+            <span class="subj">【Cryptopanda】ご登録ありがとうございます。日本円から暗号資産を、最短30分で</span>
           </div>
           <div class="mail-body">{{user_name}} 様
 
-ビットコインやイーサリアムなどの暗号資産を保有されている方の多くが、こんな疑問を持たれています。
+このたびはCryptopandaにご登録いただき、誠にありがとうございます。
+Cryptopandaは、<b>日本円と暗号資産をピアツーピア（P2P）で交換</b>できるプラットフォームです。海外取引所を使わずに、日本円から直接BTC・USDT・ETH などを購入していただけます。
 
-「買った暗号資産、このままウォレットに置いておくしかないの？」
-
-実は、暗号資産には<b>「持つ」以外の活かし方</b>があります。本日は、保有している暗号資産の代表的な活用方法を、2つの選択肢としてご紹介します。
-
-──────────────────────
-■ ① そのまま保有（値上がりを待つ）
-──────────────────────
-最もシンプルな方法。長期的な値上がり益（キャピタルゲイン）を狙う、いわゆる「ガチホ」戦略です。
-ただし、保有しているだけでは利息は発生せず、現金が必要になったときに売却すると<b>最大55%の所得税</b>が発生する可能性もあります。
+本日は、Cryptopandaで暗号資産を購入するまでの基本的な流れと、よくあるご質問をご案内します。
 
 ──────────────────────
-■ ② 預けて「利息」を受け取る → <b>IZAKA-YA</b>
+■ Cryptopandaの3つの特徴
 ──────────────────────
-<div class="service-card izakaya">
-<h4>IZAKA-YA — 暗号資産を預けて、利息を受け取る</h4>
-<p>
-保有しているBTC・USDT・ETHなどを <b>IZAKA-YA</b> に預けると、<b>最大年利12%</b>の利息を受け取ることができます。
-キャンペーン時には<b>年利100%・500%</b>といった特別金利が適用される企画も。
-KYC不要・3分登録で、すぐに運用を始められます。
-</p>
-<a href="https://izakaya.tech/" class="cta orange">IZAKA-YA（izakaya.tech）を見る</a>
-</div>
+　・<b>手数料0円</b>：交換手数料は一切かかりません
+　・<b>最短30分で完了</b>：98.2%の取引が送金から30分以内に交換完了
+　・<b>セルフカストディ</b>：資産を預けることなく、必要な分だけ交換可能
 
 ──────────────────────
-■ ③ 担保にして「現金」を借りる → <b>CryptoPawn</b>
+■ ご利用までの基本3ステップ
 ──────────────────────
-<div class="service-card pawn">
-<h4>CryptoPawn — 暗号資産を担保に、日本円を借入</h4>
-<p>
-急に現金が必要になったとき、保有している暗号資産を売却してしまうと税金が発生します。
-<b>CryptoPawn</b>なら、暗号資産を担保にして<b>月利0.1%（実質年率1.2%）</b>で日本円を借入可能。返済すれば、預けた暗号資産はそのまま戻ってきます。
-</p>
-<a href="https://cryptopawn.io/" class="cta gold">CryptoPawn（cryptopawn.io）を見る</a>
-</div>
+<div class="step-list"><ol>
+<li><b>マイページにログイン</b>
+└ <code>app.cryptopanda.app</code> から登録メールアドレス／パスワードでログイン。</li>
+<li><b>取引申込</b>
+└ 購入したい暗号資産（BTC / USDT / ETH など全11銘柄）と日本円の金額を入力。</li>
+<li><b>日本円を送金 → 暗号資産を受領</b>
+└ 案内に従って日本円をお送りいただくと、送金確認後、<b>98.2%は30分以内</b>に指定の暗号資産アドレスへ着金します（ネットワークの混雑状況により前後する場合があります）。</li>
+</ol></div>
+
+<a href="https://cryptopanda.app/" class="cta">マイページで始める（cryptopanda.app）</a>
 
 ──────────────────────
-増やす、あるいは売らずに借りる。
-保有している暗号資産の活かし方は、目的に合わせて選べます。
+■ よくあるご質問
+──────────────────────
+<b>Q. 対応している暗号資産は？</b>
+A. BTC・USDT・ETHなど代表的なコインを含む、全11銘柄に対応しています。
 
-このあと数回にわけて、それぞれのサービスを詳しくご紹介していきます。
+<b>Q. 手数料はかかりますか？</b>
+A. <b>交換手数料は一切かかりません</b>。シンプルで分かりやすい料金体系です。
 
-運営事務局</div>
+<b>Q. セキュリティはどうなっていますか？</b>
+A. 暗号資産管理技術企業 <b>Fireblocks</b> を採用し、シンガポール監査法人によりすべての取引に監査が入っています。
+
+<b>Q. なぜ「運営会社への問い合わせ窓口」がないの？</b>
+A. Cryptopandaは特定の運営者が管理する中央集権型のサービスではなく、<b>分散型（P2P）</b>で設計されています。取引はご自身のマイページ上で完結します。
+
+これからどうぞよろしくお願いいたします。
+
+Cryptopanda</div>
         </div>
 
         <div class="note">
           <b>設計意図</b>
-          初回は「ただ保有するだけ」を①として置き、②IZAKA-YA（増やす）、③CryptoPawn（借りる）の2サービスを並列で提示。あくまで<b>どちらか単体でも成立する選択肢</b>として紹介し、特定サービスの利用を前提にした連携訴求はしない。詳細はDay 3以降に分散。
+          1通目は「Cryptopandaで日本円→暗号資産を買えるようにする」ことが最優先。いきなり他サービスを宣伝せず、まずはCryptopanda自体の概要・使い方を丁寧に説明する。<b>Cryptopandaは中央集権ではない</b>ため、運営事務局・問い合わせ窓口・営業時間は設けず、差出人も「Cryptopanda」とする。IZAKA-YA／CryptoPawnの紹介はDay 3以降に分散。
         </div>
 
         <div class="feedback-area" data-step="day0">
